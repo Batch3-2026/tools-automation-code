@@ -7,7 +7,7 @@ variable "tools" {
         http = 80
         https = 443
       }
-      volume_size = 30
+      volume_size = {30}
       policy_name = [
       # define multiple policy objects here
         {
