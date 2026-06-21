@@ -1,3 +1,4 @@
+# Storing Remote State file on S3 Bucket.
 terraform {
   backend "s3" {
     bucket         = "batch-03-tools"

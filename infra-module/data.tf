@@ -1,3 +1,4 @@
+# This a Data Source to read the details from AWS directly
 data "aws_ami" "rhel9" {
   most_recent      = true
   owners           = ["self"] # provide here your account ID of AWS

@@ -1,3 +1,4 @@
+# Define variables for Root Module
 variable "tools" {
   default = {
     workstation = {

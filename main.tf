@@ -1,3 +1,4 @@
+# This code is for calling child module
 module "infra-module" {
   source         = "./infra-module"
   for_each       = var.tools
@@ -8,3 +9,5 @@ module "infra-module" {
   ports          = each.value["ports"]
   volume_size    = each.value["volume_size"]
 }
+
+# You need to have a code written in DRY format. Code should not be repeatable.
