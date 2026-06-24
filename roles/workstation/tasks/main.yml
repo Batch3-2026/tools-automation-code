@@ -1,0 +1,26 @@
+---
+- name: Setup Name Prompt
+  ansible.builtin.shell: set-prompt workstation
+
+- name: Add Hashicorp gpg key
+  ansible.builtin.rpm_key:
+    state: present
+    key:   https://rpm.releases.hashicorp.com/gpg
+
+- name: Add HashiCorp YUM repository
+  ansible.builtin.yum_repository:
+    name: hashicorp
+    description: HashiCorp Stable - $basearch
+    baseurl: https://hashicorp.com
+    gpgcheck: true
+    gpgkey: https://rpm.releases.hashicorp.com/gpg
+    enabled: true
+
+- name: Install Terraform
+  ansible.builtin.dnf:
+    name: terraform
+    state: latest
+  become: true
+
+- name: Install Ansible
+  ansible.builtin.shell: pip-3.11 install ansible
